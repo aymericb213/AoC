@@ -1,10 +1,7 @@
 #https://adventofcode.com/2020/day/3
-matrix = []
 
-open("input.txt") do file
-    for line in eachline(file)
-        push!(matrix, split(strip(line), ""))
-    end
+matrix = open("input.txt") do file
+    matrix = [split(strip(line), "") for line in eachline(file)]
 end
 
 solution = 0

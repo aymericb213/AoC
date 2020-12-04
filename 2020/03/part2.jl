@@ -1,10 +1,7 @@
 #https://adventofcode.com/2020/day/3
-matrix = []
 
-open("input.txt") do file
-    for line in eachline(file)
-        push!(matrix, split(strip(line), ""))
-    end
+matrix = open("input.txt") do file
+    matrix = [split(strip(line), "") for line in eachline(file)]
 end
 
 slopes = [(1,1), (3,1), (5,1), (7,1), (1,2)]
