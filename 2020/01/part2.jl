@@ -2,9 +2,9 @@
 
 open("input.txt") do file
     expenses = [parse(Int, line) for line in eachline(file)]
-    for i in 1:size(expenses, 1)
-        for j in i+1:size(expenses, 1)
-            for k in j+1:size(expenses, 1)
+    for i in 1:length(expenses)
+        for j in i+1:length(expenses)
+            for k in j+1:length(expenses)
                 if expenses[i]+expenses[j]+expenses[k] == 2020
                     return expenses[i]*expenses[j]*expenses[k]
                 end

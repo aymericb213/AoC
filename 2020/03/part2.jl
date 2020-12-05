@@ -9,11 +9,11 @@ slopes = [(1,1), (3,1), (5,1), (7,1), (1,2)]
 function slide(slope)
     sled = (1,1)
     trees = 0
-    while sled[2] <= size(matrix, 1)
+    while sled[2] <= length(matrix)
         if matrix[sled[2]][sled[1]] == "#"
             trees += 1
         end
-        x = sled[1]+slope[1] > size(matrix[1], 1) ? (sled[1]+slope[1])%size(matrix[1],1) : sled[1]+slope[1]
+        x = sled[1]+slope[1] > length(matrix[1]) ? (sled[1]+slope[1])%length(matrix[1]) : sled[1]+slope[1]
         sled = (x, sled[2]+slope[2])
     end
     return trees

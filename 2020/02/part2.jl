@@ -16,7 +16,7 @@ end
 
 solution = 0
 
-for i in 1:size(passwords, 1)
+for i in 1:length(passwords)
         if (passwords[i][bounds[i][1]] == policies[i] || passwords[i][bounds[i][2]] == policies[i]) && (passwords[i][bounds[i][1]] != passwords[i][bounds[i][2]])
         global solution += 1
     end

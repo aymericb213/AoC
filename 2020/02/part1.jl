@@ -16,7 +16,7 @@ end
 
 solution = 0
 
-for i in 1:size(passwords, 1)
+for i in 1:length(passwords)
     occurences = count(char -> (char == policies[i]), passwords[i])
     if (bounds[i][1] <= occurences) && (occurences <= bounds[i][2])
         global solution += 1
