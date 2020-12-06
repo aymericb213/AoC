@@ -19,8 +19,6 @@ end
 rows = [seat[1:7] for seat in seats]
 columns = [seat[8:10] for seat in seats]
 
-
-
 ids = sort([binary_seat(rows[i])*8 + binary_seat(columns[i]) for i in 1:length(rows)])
 
 for id in ids[1:length(ids)-1]
