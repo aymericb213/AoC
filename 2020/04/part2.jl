@@ -10,9 +10,9 @@ function valid_field(field, value)
             "byr" => length(value) == 4 && isinbounds(value, "1920", "2002")
             "iyr" => length(value) == 4 && isinbounds(value, "2010", "2020")
             "eyr" => length(value) == 4 && isinbounds(value, "2020", "2030")
-            "hgt" => @match value[length(value)-1:length(value)] begin
-                    "cm" => isinbounds(value[1:length(value)-2], "150", "193")
-                    "in" => isinbounds(value[1:length(value)-2], "59", "76")
+            "hgt" => @match value[end-1:end] begin
+                    "cm" => isinbounds(value[1:end-2], "150", "193")
+                    "in" => isinbounds(value[1:end-2], "59", "76")
                     _ => false
                     end
             "hcl" => occursin(r"^#[a-f0-9]{6}$", value)
@@ -48,5 +48,4 @@ open("input.txt") do file
         push!(passports, passport)
     end
 end
-println(size(passports, 1))
-#228
+println(length(passports))

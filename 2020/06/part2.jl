@@ -20,7 +20,7 @@ open("input.txt") do file
             end
         end
     end
-    #input misses an empty line as a final line so let's check the last passport here
+    #input misses an empty line as a final line so let's process the last item here
     for question in keys(questions)
         if questions[question] == count
             global solution += 1

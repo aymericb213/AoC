@@ -13,7 +13,7 @@ open("input.txt") do file
             end
         end
     end
-    #input misses an empty line as a final line so let's check the last passport here
+    #input misses an empty line as a final line so let's process the last item here
     global solution += length(questions)
 end
 
