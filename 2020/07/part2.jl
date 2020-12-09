@@ -17,19 +17,22 @@ end
 
 solution = 0
 level = ""
+memoisator = Dict()
+
 function bagscontainedin(bag)
     println(level * bag)
-    if bags[bag] == []
-        return 0
-    else
-        sum = 0
-        global level *= "-"
-        for color in bags[bag]
-            nb = parse(Int, color[1])
-            sum += nb + nb*bagscontainedin(color[3:end])
-        end
-        global level = level[1:end-1]
-        return sum
+    if bag in collect(keys(memoisator))
+        return memoisator[bag]
     end
+    sum = 0
+    global level *= "-"
+    for color in bags[bag]
+        nb = parse(Int, color[1])
+        sum += nb*(1+bagscontainedin(color[3:end]))
+    end
+    global level = level[1:end-1]
+    memoisator[bag] = sum
+    return sum
 end
+
 println(bagscontainedin("shiny gold"))

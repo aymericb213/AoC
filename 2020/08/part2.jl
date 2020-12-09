@@ -31,13 +31,13 @@ end
 
 for i in 1:length(bootcode)
     mod_bootcode = copy(bootcode)
-    
+
     command, value = split(bootcode[i], " ")
     if command == "jmp"
         mod_bootcode[i] = "nop " * value
     elseif command == "nop"
         mod_bootcode[i] = "jmp " * value
-    elseif command == "acc"
+    else
         continue
     end
 
