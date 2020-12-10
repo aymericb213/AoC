@@ -1,18 +1,14 @@
 #https://adventofcode.com/2020/day/4
 using Match
 
-function isinbounds(number, lb, ub)
-    return number >= lb && number <= ub
-end
-
 function valid_field(field, value)
     return @match field begin
-            "byr" => length(value) == 4 && isinbounds(value, "1920", "2002")
-            "iyr" => length(value) == 4 && isinbounds(value, "2010", "2020")
-            "eyr" => length(value) == 4 && isinbounds(value, "2020", "2030")
+            "byr" => length(value) == 4 && "1920" <= value <= "2002"
+            "iyr" => length(value) == 4 && "2010" <= value <= "2020"
+            "eyr" => length(value) == 4 && "2020" <= value <= "2030"
             "hgt" => @match value[end-1:end] begin
-                    "cm" => isinbounds(value[1:end-2], "150", "193")
-                    "in" => isinbounds(value[1:end-2], "59", "76")
+                    "cm" => "150" <= value[1:end-2] <= "193"
+                    "in" => "59" <= value[1:end-2] <= "76"
                     _ => false
                     end
             "hcl" => occursin(r"^#[a-f0-9]{6}$", value)
