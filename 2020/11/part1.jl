@@ -5,14 +5,8 @@ seat_map = open("input.txt") do file
 end
 
 function neighbours(map, x, y)
-    if 1 < x < length(map)
-        xi = (0, -1, 1)   #general case
-    elseif x > 1
-        xi = (0, -1)      #last row
-    else
-        xi = (0, 1) #first row
-    end
-    yi =  1 < y < length(map[1]) ? (0, -1, 1) : (y > 1 ? (0, -1) : (0, 1))
+    xi = 1 < x < length(map) ? (0, -1, 1) : x > 1 ? (0, -1) : (0, 1)
+    yi = 1 < y < length(map[1]) ? (0, -1, 1) : y > 1 ? (0, -1) : (0, 1)
     return [map[x + a][y + b] for a in xi for b in yi if (a != 0 || b != 0)]
 end
 
