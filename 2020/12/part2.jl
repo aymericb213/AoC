@@ -7,7 +7,7 @@ waypoint = (10, 1)
 function move(instruction)
     (command, value) = instruction[1], parse(Int,instruction[2:end])
     if command in ['L', 'R']
-        turns = div(value, 90)
+        turns = value÷90
         while turns > 0
             global waypoint = command == 'R' ? (waypoint[2], -waypoint[1]) : (-waypoint[2], waypoint[1])
             turns -= 1

@@ -7,7 +7,7 @@ end
 function neighbours(map, x, y)
     xi = 1 < x < length(map) ? (0, -1, 1) : x > 1 ? (0, -1) : (0, 1)
     yi = 1 < y < length(map[1]) ? (0, -1, 1) : y > 1 ? (0, -1) : (0, 1)
-    return [map[x + a][y + b] for a in xi for b in yi if (a != 0 || b != 0)]
+    [map[x + a][y + b] for a in xi for b in yi if (a != 0 || b != 0)]
 end
 
 function next_state(map)
@@ -22,7 +22,7 @@ function next_state(map)
             end
         end
     end
-    return new_map
+    new_map
 end
 
 while seat_map != next_state(seat_map)

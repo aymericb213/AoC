@@ -8,10 +8,10 @@ function move(instruction)
     (command, value) = instruction[1], parse(Int,instruction[2:end])
     if command in ['L', 'R']
         directions = ['E', 'S', 'W', 'N']
-        directions = OffsetArray(directions, 0:3)
-        offset = command == 'R' ? div(value, 90) : -div(value, 90)
+        directions = OffsetArray(directions, 0:length(directions) - 1)
+        offset = command == 'R' ? value÷90 : -value÷90
         index = (findfirst(isequal(direction), directions) + offset) % length(directions)
-        index = index < 0 ? 4 + index : index
+        index = index < 0 ? length(directions) + index : index
         global direction = directions[index]
     end
     if command == 'F'
