@@ -37,7 +37,7 @@ candidates end
 
 function assign_fields(candidates, rules, tickets)
     assignment = repeat([""], length(keys(rules)))
-    while count(isequal(""), assignment) > 1
+    while "" in assignment
         for field in collect(keys(candidates))
             if length(candidates[field]) == 1 && !(field in assignment)
                 assignment[candidates[field][1]] = field
