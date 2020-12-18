@@ -33,16 +33,8 @@ pocket_dimension = Dict{Tuple, String}()
 open("input.txt") do file
     for (y, line) in enumerate(eachline(file))
         row = split(line, "")
-        for x in 0:length(row)+1
-            for z in -1:1
-                for w in -1:1
-                    if z==0 && w==0 && 1 <= x <= length(row)
-                        pocket_dimension[(x-1, y-1, z, w)] = row[x]
-                    else
-                        pocket_dimension[(x-1, y-1, z, w)] = "."
-                    end
-                end
-            end
+        for x in 1:length(row)
+            pocket_dimension[(x-1, y-1, 0, 0)] = row[x]
         end
     end
     for cube in collect(keys(pocket_dimension))
