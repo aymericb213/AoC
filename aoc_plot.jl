@@ -34,9 +34,10 @@ xaxis!("Star number", xtickfontsize = 15)
 yaxis!("Users", yminorticks = true, ytickfontsize = 15)
 xticks!(1:50)
 yticks!(0:10000:typemax(Int32))
-vline!([14,20,26], label="", palette=repeat([:gray],3))
+vline!([14,20,26,40], label="", palette=repeat([:gray],3))
 annotate!([(13.75, stars[end][1], Plots.text("Day 7\nThe shiny gold bag", 16, :lightgray, :right)),
            (19.75, stars[end][1], Plots.text("Day 10\nAdapter hazard", 16, :lightgray, :right)),
-           (25.75, stars[end][1], Plots.text("Day 13\nChinese buses", 16, :lightgrey, :right))])
+           (25.75, stars[end][1], Plots.text("Day 13\nChinese buses", 16, :lightgrey, :right)),
+           (39.75, stars[end][1], Plots.text("Day 20\nMonster tiling", 16, :lightgrey, :right)),])
 display(aoc)
 savefig("aoc_plot.svg")
