@@ -3,7 +3,7 @@ Solutions des puzzles des events Advent of Code (https://adventofcode.com/)
 
 ### 2020
 
-19.5/25 réalisés
+21.5/25 réalisés
 
 Langage : Julia
 
